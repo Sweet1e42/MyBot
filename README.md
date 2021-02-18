@@ -8,6 +8,7 @@
 @commands.command(name = 'send-embed')
 async def send_embed(self, ctx, color):
     color = int(color, 16)
+    
     embed = discord.Embed(
           title       = "Заголовок",
           description = "Описание",
