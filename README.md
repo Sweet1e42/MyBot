@@ -17,7 +17,7 @@
               url         = "..."
         ).set_image(url = "...") \
          .set_thumbnail(url = "...") \
-         .set_footer(text = "...", icon_url = "...") \ /// Текст снизу. icon - картинка слева от текста
-         .set_author(name = "...", url = "...", icon_url = "...") \ /// Автор и его картинка, а также ссылка при неведении
-         .add_field(text = "...", value = "...", inline = True) \ /// Заголовок и значние. В строке или нет
-         .add_field(text = "...", value = "...", inline = False)  /// Заголовок и значние. В строке или нет
+         .set_footer(text = "...", icon_url = "...") \                  /// Текст снизу. icon - картинка слева от текста
+         .set_author(name = "...", url = "...", icon_url = "...") \     /// Автор и его картинка, а также ссылка при неведении
+         .add_field(text = "...", value = "...", inline = True) \       /// Заголовок и значние. В строке или нет
+         .add_field(text = "...", value = "...", inline = False)        /// Заголовок и значние. В строке или нет
