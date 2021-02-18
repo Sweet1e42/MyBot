@@ -5,6 +5,7 @@
 
 # Полное описание Embed
 
+`
 @commands.command(name = 'send-embed')
 async def send_embed(self, ctx, color):
     color = int(color, 16)
@@ -21,3 +22,4 @@ async def send_embed(self, ctx, color):
      .set_author(name = "...", url = "...", icon_url = "...") \ 
      .add_field(text = "...", value = "...", inline = True) \ 
      .add_field(text = "...", value = "...", inline = False) 
+`
