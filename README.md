@@ -3,12 +3,11 @@
 
 Тут будут все исходные коды из видео!
 
-#Полное описание Embed
+# Полное описание Embed
 
 @commands.command(name = 'send-embed')
 async def send_embed(self, ctx, color):
     color = int(color, 16)
-
     embed = discord.Embed(
           title       = "Заголовок",
           description = "Описание",
