@@ -79,6 +79,39 @@ class Admin(commands.Cog):
 
         await ctx.send(embed = discord.Embed(title = "Модерация | Бан", description = form, color = 0xff033))
 
+# HackBan
+    @commands.guild_only()
+    @commands.command(name = 'hackban')
+    @commands.has_permissions(ban_members = True)
+    async def hackban_command(self, ctx, userid = None, *, reason='Отсутствует'):
+        if userid == None:      return # Не указан id
+        if len(userid) > 18:    return # id больше 18 символов
+        if (len(reason) > 401): return # Пречина больше 400 слов
+
+        try:
+            userid = int(userid)
+            user   = await self.bot.fetch_user(userid)
+        except:
+            return
+        
+        member = ctx.guild.get_member(userid)
+
+        if member != None: return
+        if userid == self.bot.user.id:   return
+        if userid == ctx.author:         return
+        if userid == ctx.guild.owner.id: return 
+        if await self.bot.fetch_user(userid) in await ctx.guild.bans(): return
+
+        await ctx.guild.ban(user, reason = f"{ctx.author}, reason: {reason}")
+
+        dis  = "HackBan | Готово!"
+        dis2 = f"**Пользователь: <@!{user.id}> забанен!\nАдмин/Модератор: <@{ctx.author.id}>**"
+
+        if reason != "None":
+            dis2 += f"\n **Причина: ``{reason}``!**"
+
+        await ctx.send(embed = discord.Embed(title = dis, description = dis2, color = 0xff033))
+        
 # Инцилизация бота
 def setup(bot):
     bot.add_cog(Admin(bot))
